@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateWorshipTable extends Migration
+class CreateWorshipsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,7 +12,7 @@ class CreateWorshipTable extends Migration
      */
     public function up()
     {
-        Schema::create('worship', function (Blueprint $table) {
+        Schema::create('worships', function (Blueprint $table) {
             $table->bigInteger('church_id')->unsigned();
             $table->timestamp('start');
             $table->timestamp('end')->nullable();
@@ -30,6 +30,6 @@ class CreateWorshipTable extends Migration
      */
     public function down()
     {
-        Schema::drop('worship');
+        Schema::drop('worships');
     }
 }

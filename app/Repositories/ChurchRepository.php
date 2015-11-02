@@ -3,11 +3,12 @@
 namespace app\Repositories;
 
 use App\Church;
+use App\Repositories\Repository;
 use Exception;
 
-class ChurchRepository
+class ChurchRepository extends Repository
 {
-    private $model;
+    protected $model;
 
     public function __construct(Church $model)
     {
@@ -21,9 +22,11 @@ class ChurchRepository
      *
      * @return Church
      */
-    public function all(array $columns = ['*'])
+    public function all(array $columns = ['*'], array $with = [])
     {
-        return $this->model->get($columns);
+        return $this->model->select($columns)->with($with)->get();
+
+        return $this->response();
     }
 
     /**
@@ -39,7 +42,7 @@ class ChurchRepository
             $this->model->fill($data);
             $this->model->save();
 
-            return $this->model;
+            return $this->response();
         } catch (Exception $e) {
             return false;
         }

@@ -25,7 +25,7 @@ class ChurchController extends Controller
      */
     public function all()
     {
-        $this->repo->all();
+        return $this->response($this->repo->all(['*'], ['addresses', 'events', 'worship']));
     }
 
     /**
