@@ -1,10 +1,10 @@
 <?php
 
-namespace app;
+namespace Church;
 
-use App\Address;
-use App\Event;
-use App\Worship;
+use Church\Address;
+use Church\Event;
+use Church\Worship;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 

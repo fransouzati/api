@@ -147,6 +147,7 @@ return [
 
         ResultSystems\Validation\ValidationServiceProvider::class,
 
+        Church\ChurchServiceProvider::class,
     ],
 
     /*

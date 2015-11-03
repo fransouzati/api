@@ -20,7 +20,7 @@ class CreateContinentsTable extends Migration
         $continents = ['Africa', 'Antarctica', 'Asia', 'Europe', 'North America', 'Oceania', 'South America'];
 
         foreach ($continents as $continent) {
-            factory(App\Continent::class)->create([
+            factory(Domain\Continent::class)->create([
                 'name' => $continent,
             ]);
         }

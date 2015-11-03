@@ -1,6 +1,6 @@
 <?php
 
-use App\Continent;
+use Domain\Continent;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
@@ -32,7 +32,7 @@ class CreateCountriesTable extends Migration
 
         foreach ($countries as $country) {
             $continent = $continents->where('name', $country['continent']);
-            factory(App\Country::class)->create([
+            factory(Domain\Country::class)->create([
                 'name' => $country['name'],
                 'code' => $country['code'],
                 'continent_id' => $continents->where('name', $country['continent'])->first()->id,

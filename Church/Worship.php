@@ -1,10 +1,9 @@
 <?php
 
-namespace app;
+namespace Church;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Address extends Model
+class Worship extends Model
 {
-    //
 }

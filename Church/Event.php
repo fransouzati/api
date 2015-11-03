@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace Church;
 
 use Illuminate\Database\Eloquent\Model;
 

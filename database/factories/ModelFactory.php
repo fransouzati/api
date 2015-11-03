@@ -11,7 +11,7 @@
 |
  */
 
-$factory->define(App\User::class, function (Faker\Generator $faker) {
+$factory->define(Domain\User::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->name,
         'email' => $faker->email,
@@ -20,8 +20,8 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
     ];
 });
 
-$factory->define(App\Country::class, function (Faker\Generator $faker) {
-    $continents = App\Continent::all();
+$factory->define(Domain\Country::class, function (Faker\Generator $faker) {
+    $continents = Domain\Continent::all();
 
     return [
         'name' => $faker->country,
@@ -30,13 +30,13 @@ $factory->define(App\Country::class, function (Faker\Generator $faker) {
     ];
 });
 
-$factory->define(App\Continent::class, function (Faker\Generator $faker) {
+$factory->define(Domain\Continent::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->country,
     ];
 });
 
-$factory->define(App\State::class, function (Faker\Generator $faker) {
+$factory->define(Domain\State::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->country,
         'code' => str_random(5),

@@ -1,10 +1,10 @@
 <?php
 
-namespace app;
+namespace Domain;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Continent extends Model
+class Country extends Model
 {
     public $timestamps = false;
 }

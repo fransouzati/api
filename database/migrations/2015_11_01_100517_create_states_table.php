@@ -1,6 +1,6 @@
 <?php
 
-use App\Country;
+use Domain\Country;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
@@ -34,7 +34,7 @@ class CreateStatesTable extends Migration
             if ($arquivo != '.' && $arquivo != '..') {
                 $states = (object) json_decode(file_get_contents(storage_path('countries/states/'.$arquivo)), true);
                 foreach ($states as $state) {
-                    factory(App\State::class)->create([
+                    factory(Domain\State::class)->create([
                         'name' => $state['name'],
                         'code' => $state['code'],
                         'country_id' => $countries->where('code', substr($state['code'], 0, 2))->first()->id,

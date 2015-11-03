@@ -14,12 +14,13 @@ class CreateAddressesTable extends Migration
     {
         Schema::create('addresses', function (Blueprint $table) {
             $table->bigInteger('church_id')->unsigned();
-            $table->integer('state_id')->unsigned();
             $table->string('zipcode', 10)->nullable();
             $table->string('street');
-            $table->integer('number')->nullable();
+            $table->integer('number')->unsigned()->nullable();
             $table->string('district')->nullable();
             $table->string('city');
+            $table->string('state');
+            $table->string('country');
             $table->string('phone1', 15)->nullable();
             $table->string('phone2', 15)->nullable();
             $table->string('phone3', 15)->nullable();
@@ -34,7 +35,6 @@ class CreateAddressesTable extends Migration
             $table->softDeletes();
 
             $table->foreign('church_id')->references('id')->on('churches')->onUpdate('cascade')->onDelete('cascade');
-            $table->foreign('state_id')->references('id')->on('states')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 
