@@ -23,7 +23,6 @@ class ChurchStoreRequest extends Request
             'phone3' => 'max:15',
             'cnpj' => 'max:14|cnpj',
             'email' => 'max:255|email',
-            'website' => 'website',
             'comments' => 'max:65535',
             'online' => 'boolean',
             'addresses' => 'required_if:online,false,0|required_without:online|array',
