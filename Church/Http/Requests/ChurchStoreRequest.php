@@ -85,4 +85,14 @@ class ChurchStoreRequest extends Request
 
         return array_merge($rules, $newRules);
     }
+
+    public function all()
+    {
+        $input = parent::all();
+        if (isset($input['address'])) {
+            $input['addresses'][0] = $input['address'];
+        }
+
+        return $input;
+    }
 }
