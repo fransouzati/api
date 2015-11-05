@@ -29,14 +29,21 @@ class ChurchController extends Controller
      */
     public function all()
     {
-        $churches = $this->repo->all(['*'], $this->with);
+        $churches = $this->repo->allActive(['*'], $this->with);
 
         return $this->response($churches);
     }
 
+    /**
+     * Get church by id :id.
+     *
+     * @param  int $id
+     *
+     * @return ChurchRepository
+     */
     public function get($id)
     {
-        $church = $this->repo->find($id, ['*'], $this->with);
+        $church = $this->repo->findActive($id, ['*'], $this->with);
 
         if ($church->count() < 1) {
             return $this->response('Failed', false);

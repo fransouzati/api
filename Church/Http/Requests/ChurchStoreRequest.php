@@ -56,7 +56,6 @@ class ChurchStoreRequest extends Request
             'latitude' => 'numeric',
             'longitude' => 'numeric',
             'comments' => 'max:65535',
-            'status' => 'required|boolean',
         ];
 
         /*

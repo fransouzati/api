@@ -82,14 +82,14 @@ class Repository
     /**
      * force delete.
      *
-     * @param int $ids
+     * @param int|string $ids
      *
-     * @return int|bool
+     * @return int
      */
     public function forceDelete($ids)
     {
         if (!in_array('Illuminate\Database\Eloquent\SoftDeletes', class_uses($this->model))) {
-            return false;
+            return 0;
         }
 
         if (!is_array($ids)) {
