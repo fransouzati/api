@@ -43,7 +43,7 @@ class ChurchStoreRequest extends Request
         $addressesRules = [
             'zipcode' => 'max:10',
             'street' => 'required|max:255',
-            'number' => 'numeric|postive',
+            'number' => 'numeric',
             'district' => 'max:255',
             'city' => 'required|max:255',
             'state' => 'required|max:255',
@@ -82,15 +82,5 @@ class ChurchStoreRequest extends Request
         }
 
         return array_merge($rules, $newRules);
-    }
-
-    public function all()
-    {
-        $input = parent::all();
-        if (isset($input['address'])) {
-            $input['addresses'][0] = $input['address'];
-        }
-
-        return $input;
     }
 }
