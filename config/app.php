@@ -148,6 +148,8 @@ return [
         ResultSystems\Validation\ValidationServiceProvider::class,
 
         Church\ChurchServiceProvider::class,
+
+        Domain\ContactServiceProvider::class,
     ],
 
     /*
