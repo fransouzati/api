@@ -24,7 +24,7 @@ class ChurchRepository extends Repository
      */
     public function allActive(array $columns = ['*'], array $with = [])
     {
-        $this->model = $this->model->where('status', true);
+        $this->model = $this->model->where('status', true)->orderby('updated_at', 'desc');
 
         return $this->all($columns, $with);
     }
