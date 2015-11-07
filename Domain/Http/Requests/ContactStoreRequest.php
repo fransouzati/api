@@ -14,8 +14,8 @@ class ContactStoreRequest extends Request
     public function rules()
     {
         return [
-            'name' => 'required|max:255',
-            'email' => 'max:255|email',
+            'name' => 'required|min:1|max:255',
+            'email' => 'required|min:5|max:255|email',
             'phone' => 'max:15',
             'comments' => 'required|min:2|max:65535',
         ];
