@@ -15,6 +15,13 @@ class ContactController extends Controller
      */
     public function store(ContactStoreRequest $request)
     {
+        $keys = array_keys($request->all());
+        foreach ($keys as $value) {
+            if (!in_array($value, ['email', 'phone', 'comments', 'name'])) {
+                return response()->json('Houve algum problema e não foi possível enviar sua mensagem', 403);
+            }
+        }
+
         $r = Mail::send('emails.contacts', $request->all(), function ($message) use ($request) {
             $message
                 ->replyTo($request->email)
