@@ -13,6 +13,7 @@ class CreateAddressesTable extends Migration
     public function up()
     {
         Schema::create('addresses', function (Blueprint $table) {
+            $table->bigIncrements('id');
             $table->bigInteger('church_id')->unsigned();
             $table->string('zipcode', 10)->nullable();
             $table->string('street');

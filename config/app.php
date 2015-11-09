@@ -149,6 +149,8 @@ return [
 
         Church\ChurchServiceProvider::class,
 
+        Church\AddressServiceProvider::class,
+
         Domain\ContactServiceProvider::class,
     ],
 
