@@ -41,6 +41,7 @@ class ChurchStoreRequest extends Request
          * @var array
          */
         $addressesRules = [
+            'title' => 'max:255',
             'zipcode' => 'max:10',
             'street' => 'required|max:255',
             'number' => 'numeric',

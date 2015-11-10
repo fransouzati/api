@@ -16,6 +16,7 @@ class CreateAddressesTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('church_id')->unsigned();
             $table->string('zipcode', 10)->nullable();
+            $table->string('title')->nullable()->index();
             $table->string('street');
             $table->integer('number')->unsigned()->nullable();
             $table->string('district')->nullable();
