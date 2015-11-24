@@ -6,6 +6,7 @@ use Church\Address;
 use Church\Repositories\ChurchRepository;
 use Domain\Criteria\Service;
 use Exception;
+use Library\GMaps;
 
 class ChurchStoreService extends Service
 {
@@ -46,6 +47,22 @@ class ChurchStoreService extends Service
         $addresses = $data['addresses'];
 
         foreach ($addresses as $row) {
+            $maps = new GMaps();
+            $add = $row['street'].', '.$row['number'].' - '.$row['district'].', '.$row['city'].' - '.$row['state'];
+            if (isset($row['zipcode'])) {
+                $zipcode = $row['zipcode'];
+                $zipcode = preg_replace('/\D/', '', $zipcode);
+                $add .= ', '.substr($zipcode, 0, 5).'-'.substr($zipcode, 5, 3);
+            }
+            $add .= ', '.$row['country'];
+
+            $location = $maps->location($add);
+
+            if (isset($location->lat) && isset($location->lng)) {
+                $row['latitude'] = $location->lat;
+                $row['longitude'] = $location->lng;
+            }
+
             try {
                 $address = new Address;
                 $address->church_id = (int) $church->id;

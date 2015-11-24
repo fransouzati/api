@@ -32,6 +32,7 @@ class ContactController extends Controller
                     ->subject('Conctact: As Igrejas!');
             });
         } catch (Exception $e) {
+            $r = false;
         }
 
         //Verifica se o email foi enviado com sucesso.

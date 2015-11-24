@@ -23,7 +23,8 @@
         "psr-4": {
             "App\\": "app/",
             "Church\\": "Church/",
-            "Domain\\": "Domain/"
+            "Domain\\": "Domain/",
+            "Library\\": "Library/"
         }
     },
     "autoload-dev": {
